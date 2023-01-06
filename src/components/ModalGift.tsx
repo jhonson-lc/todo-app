@@ -40,7 +40,6 @@ const ModalGift: React.FC<Props> = ({ isOpen, gift, onClose, stateGifts }) => {
     setDestination(gift?.destination || "")
   }, [gift])
 
-
   const handleClick = () => {
 
     let cacheGifts = new Map(stateGifts.gifts);
@@ -55,13 +54,14 @@ const ModalGift: React.FC<Props> = ({ isOpen, gift, onClose, stateGifts }) => {
     });
 
     const newGift: Gift = {
-      id: stateGifts.gifts.size + 2,
+      id: gift?.name ? gift?.id :stateGifts.gifts.size + 2,
       name: value,
       quantity: order,
       image: image,
       destination: destination
     };
 
+    if(!gift?.name){
     for (const gift of stateGifts.gifts.values()) {
       if (gift.name === value) {
         t({
@@ -74,6 +74,7 @@ const ModalGift: React.FC<Props> = ({ isOpen, gift, onClose, stateGifts }) => {
         });
         return
       }
+    };
     }
 
     cacheGifts.set(newGift.id, newGift);
