@@ -3,7 +3,6 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
   ModalFooter,
   ModalBody,
   ModalCloseButton,
@@ -91,7 +90,6 @@ const ModalGift: React.FC<Props> = ({ isOpen, gift, onClose, stateGifts }) => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent w={300}>
-          <ModalHeader>Tu regalo</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Stack>
